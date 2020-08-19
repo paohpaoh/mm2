@@ -1,0 +1,66 @@
+<html>
+<head>
+<title></title>
+<style>
+table {
+  border: 1px solid black;
+}
+tr {
+  border: 1px solid red;
+}
+td {
+  border: 1px solid purple;
+}
+#table0 {}
+</style>
+<body>
+<table id="table0">
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<script>
+var array = ["m", "g", "z", "h", "c", "i", "o", "p", "l", "k", "g"],
+    tr;
+function sortAlphabetical(a, b) {
+  if (a < b) {
+    return 1;
+  }
+  if (a > b) {
+    return -1;
+  }
+  return 0;
+}
+var arrayCopy = array.slice(0);
+array.sort(sortAlphabetical);
+
+    arrayCopy.forEach((v, i) => {
+      if (!(i % 6)) {
+          tr = document.createElement('tr');
+          document.getElementById('table0').appendChild(tr);
+      }
+        var td = document.createElement('td');
+
+        td.appendChild(document.createTextNode(v));
+        tr.appendChild(td);
+
+        var tr2 = document.createElement('tr');
+        var td2 = document.createElement('td');
+        td2.appendChild(document.createTextNode("18"));
+        tr2.appendChild(td2);
+        tr.appendChild(tr2);
+    })
+
+/*array.forEach((v, i) => {
+    var td = document.createElement('td');
+
+    if (!(i % 6)) {
+        tr = document.createElement('tr');
+        document.getElementById('table0').appendChild(tr);
+    }
+    td.appendChild(document.createTextNode(v));
+    tr.appendChild(td);
+})*/
+</script>
